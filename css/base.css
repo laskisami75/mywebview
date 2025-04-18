@@ -1,0 +1,56 @@
+:root {
+  --bg:     oklch(.21 .032 265);
+  --dark:   oklch(.18 .032 265);
+  --dark2:  oklch(.21 .039 265);
+  --light:  oklch(.24 .044 265);
+  --light2: oklch(.25 .051 265);
+  --light3: oklch(.25 .057 264);
+  --text:   oklch(.94 .032 265);
+  --focus:  oklch(.50 .125 242);
+  --shadow: oklch(.05 .032 265 / .35);
+  --black:  #0d0e0f;
+  --disabled:      oklch(.24 .022 272);
+  --text-disabled: oklch(.446 .032 265);
+}
+html, body {
+  font-family: Roboto, sans-serif;
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: var(--bg);
+  overscroll-behavior-y: contain;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  color: var(--text);
+}
+[hidden] {
+  display: none !important;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+:where(main:not(#app):not(:has(> main))) {
+  padding: .6rem;
+}
+
+section:has(+ *) {
+  margin-bottom: 1rem;
+}
+a {
+  text-decoration: none;
+}
+img, canvas {
+  width: 100%;
+  height: auto;
+}
+img.fit, canvas.fit {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #0d0e0f;
+}

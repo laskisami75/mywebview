@@ -1,0 +1,113 @@
+
+/* Stretch vertically to fill content */
+.vfill {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+:where(.vfill > *) {
+  height: 100%;
+}
+/* Stack elements with gutter */
+.stack {
+  display: flex;
+  flex-flow: column;
+  gap: .6em;
+  margin: .6em;
+  height: auto;
+}
+/* Divide height evenly (top to bottom) */
+.hgroup {
+  display: grid;
+  gap: .6em;
+  margin: .6em;
+  height: 100%;
+}
+/* Divide width evenly (side by side) */
+.group {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: .6em;
+  margin: .6em;
+  height: auto;
+}
+/* Flex */
+.flex {
+  display: flex;
+  gap: .6em;
+}
+/* Combine text field and button */
+.combine {
+  display: flex;
+  border-radius: .4em;
+  outline: 1px solid var(--dark2);
+  outline-offset: 1px;
+  transition: outline linear .15s;
+}
+.combine > * {
+  outline: none !important;
+}
+.combine:focus-within {
+  outline: 1px solid var(--focus);
+}
+
+/* Margin equal to stack/group */
+.margin {
+  margin: .6em;
+}
+/* Remove margin (useful for stack or group) */
+:is(.zm) {
+  margin: 0;
+}
+:is(.zi) {
+  margin-inline: 0;
+}
+:is(.zb) {
+  margin-block: 0;
+}
+/* Overlay elements on top of each other */
+.overlay {
+  display: grid;
+  height: 100%;
+}
+.overlay > * {
+  grid-column: 1;
+  grid-row: 1;
+}
+/* Alignment helpers */
+.center {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*====== Spacer ======*/
+.spacer {
+  height: 2em;
+}
+
+/*====== Bar ======*/
+.bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 12px;
+  height: 100%;
+  z-index: 200;
+  background: linear-gradient(180deg, oklch(0.3 0.2 212 / .6) calc(var(--pos, 0) * 100%), transparent calc(var(--pos, 0) * 100%));
+}
+
+/*====== No scrollbar ======*/
+.no-hscroll::-webkit-scrollbar {
+  height: 0;
+}
+
+/*====== Other helpers ======*/
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}

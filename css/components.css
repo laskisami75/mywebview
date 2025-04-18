@@ -1,0 +1,287 @@
+
+/*====== Textarea ======*/
+textarea {
+  font-family: Roboto, monospace;
+  font-size: 12px;
+  width: 100%;
+  height: 100%;
+  padding: .6rem .8rem;
+  background: var(--dark);
+  color: var(--text);
+  white-space: pre;
+  overflow: auto;
+  border: none;
+  outline: none;
+  resize: none;
+  tab-size: 2;
+}
+
+/*====== Text input ======*/
+input[type=text],
+input[type=number] {
+  background: var(--dark);
+  color: var(--text);
+  font-size: 1em;
+  padding: .6em .8em;
+  border-radius: .4em;
+  outline: none;
+  border: none;
+  width: 100%;
+  min-width: unset;
+  outline: 1px solid var(--dark2);
+  transition: outline linear .15s;
+}
+input[type=text]:focus,
+input[type=number]:focus {
+  outline: 1px solid var(--focus);
+}
+
+/*====== Auto resizing text input ======*/
+[contenteditable] {
+  outline: none;
+}
+[role=input] {
+  display: block;
+  background: var(--dark);
+  color: var(--text);
+  font-size: 1em;
+  border-radius: .4em;
+  padding: .6rem .8rem;
+  outline: 1px solid var(--dark2);
+  transition: outline linear .15s;
+}
+[role=input]:focus {
+  outline: 1px solid var(--focus);
+}
+
+/*====== Pre ======*/
+pre {
+  font-family: Roboto, monospace;
+  font-size: 12px;
+  width: 100%;
+  padding: .6rem .8rem;
+  background: var(--dark);
+  color: var(--text);
+  border-radius: .4em;
+  white-space: pre;
+  overflow: auto;
+  min-height: calc(1lh + 1.2rem);
+  tab-size: 2;
+  user-select: contain;
+}
+
+/*====== Button ======*/
+button {
+  font-size: 1em;
+  padding: .5em 1.25em;
+  border-radius: .4em;
+  background: var(--light);
+  color: var(--text);
+  user-select: none;
+  outline: none;
+  border: none;
+  transition: color .15s ease-out,
+    background .15s ease-out;
+}
+button:not([disabled]):hover {
+  background: var(--light3);
+}
+button[disabled] {
+  background: var(--disabled);
+  color: var(--text-disabled);
+}
+
+/*====== Link as button ======*/
+[role=button] {
+  font-size: 1em;
+  padding: .5em 1.25em;
+  border-radius: .4em;
+  background: var(--light);
+  color: var(--text);
+  user-select: none;
+  outline: none;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  transition: color .15s ease-out,
+    background .15s ease-out;
+}
+[role=button]:not([disabled]):hover {
+  background: var(--light2);
+}
+[role=button]:active {
+  -webkit-tap-highlight-color: transparent;
+}
+[role=button][disabled] {
+  background: var(--disabled);
+  color: var(--text-disabled);
+}
+
+/*====== Dialog ======*/
+dialog {
+  width: 70%;
+  height: fit-content;
+  max-height: 90%;
+  padding: 0;
+  margin: auto;
+  border: none;
+  background: var(--bg);
+  border-radius: .4em;
+}
+dialog::backdrop {
+  backdrop-filter: brightness(.4);
+}
+
+/*====== Fake dialog ======*/
+[role=dialog] {
+  position: fixed;
+  display: flex;
+  inset: 0;
+  background: rgb(0 0 0 / .6);
+  z-index: 5000;
+  touch-action: none;
+}
+[role=dialog] > div {
+  display: block;
+  width: 70%;
+  max-height: 90%;
+  margin: auto;
+  background: var(--bg);
+  border-radius: .4em;
+}
+
+/*====== Range input ======*/
+input[type=range] {
+  --pos: 0.5;
+  --track: .4rem;
+  --thumb: 1.2rem;
+  appearance: none;
+  width: 100%;
+  height: .8rem;
+  margin-block: .6rem;
+  background: transparent;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  background: linear-gradient(90deg, var(--focus) calc(var(--pos) * 100%), var(--dark) calc(var(--pos) * 100%));
+  height: var(--track);
+  border-radius: .6rem;
+  z-index: 200;
+}
+input[type=range]::-webkit-slider-thumb {
+  appearance: none;
+  background: var(--focus);
+  width: var(--thumb);
+  height: var(--thumb);
+  margin-top: calc((var(--track) - var(--thumb)) / 2);
+  border-radius: .6rem;
+  border: 1px solid var(--dark);
+}
+
+/*====== Checkbox input ======*/
+fieldset {
+  display: grid;
+  gap: .4em;
+  border: none;
+  padding: 0;
+}
+fieldset > * {
+  display: block;
+}
+input[type=checkbox],
+input[type=radio] {
+  --size: 1.75em;
+  appearance: none;
+  width: var(--size);
+  height: var(--size);
+  border-radius: .4em;
+  margin-top: calc((1em - var(--size)) / 2);
+  margin-inline-end: .5ch;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: background-color linear .15s;
+  border: .125rem solid var(--dark2);
+  background-color: var(--dark);
+}
+input[type=checkbox]:checked {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(255, 255, 255)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+  background-position: center;
+  background-size: 1em auto;
+  background-repeat: no-repeat;
+  background-color: var(--focus);
+}
+input[type=radio] {
+  border-radius: 50%;
+}
+input[type=radio]:checked {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='white' stroke='none'%3E%3Ccircle cx='12' cy='12' r='8'%3E%3C/circle%3E%3C/svg%3E");
+  background-position: center;
+  background-size: 1em auto;
+  background-repeat: no-repeat;
+  background-color: var(--focus);
+}
+
+/*====== Switch input ======*/
+input[type=checkbox][role=switch] {
+  --size: 1.25em;
+  --ratio: 2.0625;
+  width: calc(var(--size) * var(--ratio));
+  height: var(--size);
+  border: .125rem solid var(--dark);
+  border-radius: 1.25em;
+  background-color: var(--dark);
+  line-height: 1.25em;
+  transition: background-color .25s linear;
+}
+input[type=checkbox][role=switch]::before {
+  display: block;
+  aspect-ratio: 1;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--text);
+  content: "";
+  transition: margin .1s ease-in-out;
+  margin-inline-start: calc(var(--size) * var(--ratio) - var(--size));
+}
+input[type=checkbox][role=switch]:checked {
+  background-image: none;
+  background-color: var(--focus);
+  border-color: var(--focus);
+}
+input[type=checkbox][role=switch]:checked::before {
+  margin-inline-start: 0;
+}
+input[type=checkbox][role=switch]:active {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/*====== File input ======*/
+label > input[type=file] {
+  display: none;
+}
+
+/*====== Divider ======*/
+hr {
+  border-color: var(--dark);
+  margin-block: .5em;
+}
+
+/*====== Tooltip ======*/
+[tooltip] {
+  position: relative;
+  display: inline-block;
+}
+[tooltip]:hover::before {
+  position: absolute;
+  content: attr(tooltip);
+  z-index: 60;
+  bottom: 100%;
+  left: 50%;
+  padding: .5em .75em;
+  translate: -50% .5em;
+  border-radius: .2em;
+  background: var(--dark);
+  font-size: .85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  pointer-events: none;
+}
