@@ -31,7 +31,7 @@ def ago(date):
 text = readText('.dist/.compile')
 lastComp = int(search(r'(?<=^num_compiled_times=)\d+$', text, M).group())
 lastTime = datetime.fromtimestamp(int(search(r'(?<=^num_compiled_times=)\d+$', text, M).group()))
-print(f'Last compiled {ago(lastTime)} ago')
+#print(f'Last compiled {ago(lastTime)} ago')
 
 thisComp = lastComp + 1
 thisTime = datetime.now()
