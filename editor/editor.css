@@ -14,3 +14,7 @@ body {
   height: 100%;
   grid-template-rows: 1fr auto;
 }
+.margin label {
+  line-height: 1.7;
+  padding-inline: .15em;
+}
